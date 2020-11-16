@@ -42,7 +42,13 @@ namespace singarule.implementations.lexpectors
          }
          else if(new CExactWordExpector(new SingaWord("hex")).ExpectIt(ref ww))
          {
-            // TODO: expect hex signature
+            var hexSigExpector = new CHexSignatureExpector();
+            if (!hexSigExpector.ExpectIt(ref ww))
+            {
+               error = hexSigExpector.error;
+               return true;
+            }
+            result.Signature = hexSigExpector.result;
          }
          else
          {
