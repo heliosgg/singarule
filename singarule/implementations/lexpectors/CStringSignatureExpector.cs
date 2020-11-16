@@ -10,7 +10,7 @@ namespace singarule.implementations.lexpectors
    {
       public override bool ExpectIt(ref IWordWalker ww)
       {
-         var headExpector = new CExactWordExpector(new SingaWord("str(\""));
+         var headExpector = new CExactWordExpector("str(\"");
          if (!headExpector.ExpectIt(ref ww))
          {
             error = headExpector.error;
@@ -24,7 +24,7 @@ namespace singarule.implementations.lexpectors
             stringSig.Append(characterExpector.result);
          }
 
-         var tailExpector = new CExactWordExpector(new SingaWord("\");"));
+         var tailExpector = new CExactWordExpector("\");");
          if (!tailExpector.ExpectIt(ref ww))
          {
             error = tailExpector.error;

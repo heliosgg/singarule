@@ -10,7 +10,7 @@ namespace singarule.implementations.lexpectors
    {
       public override bool ExpectIt(ref IWordWalker ww)
       {
-         var metaStringExpector = new CExactWordExpector(new SingaWord("meta"));
+         var metaStringExpector = new CExactWordExpector("meta");
          if (!metaStringExpector.ExpectIt(ref ww))
          {
             error = metaStringExpector.error;
@@ -21,7 +21,7 @@ namespace singarule.implementations.lexpectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         var openBraceExpector = new CExactWordExpector(new SingaWord("{"));
+         var openBraceExpector = new CExactWordExpector("{");
          if (!openBraceExpector.ExpectIt(ref ww))
          {
             error = openBraceExpector.error;
@@ -34,14 +34,14 @@ namespace singarule.implementations.lexpectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         var closeBraceExpector = new CExactWordExpector(new SingaWord("}"));
+         var closeBraceExpector = new CExactWordExpector("}");
          if (!closeBraceExpector.ExpectIt(ref ww))
          {
             error = closeBraceExpector.error;
             return false;
          }
 
-         var sigsStringExpector = new CExactWordExpector(new SingaWord("sigs"));
+         var sigsStringExpector = new CExactWordExpector("sigs");
          if (!sigsStringExpector.ExpectIt(ref ww))
          {
             error = sigsStringExpector.error;
@@ -70,7 +70,7 @@ namespace singarule.implementations.lexpectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         var condStringExpector = new CExactWordExpector(new SingaWord("cond"));
+         var condStringExpector = new CExactWordExpector("cond");
          if (!condStringExpector.ExpectIt(ref ww))
          {
             error = condStringExpector.error;

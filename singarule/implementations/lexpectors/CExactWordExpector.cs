@@ -14,6 +14,8 @@ namespace singarule.implementations.lexpectors
          ExpectedWords = new SingaWord[] { expected_value }.ToList();
       }
 
+      public CExactWordExpector(string expected_value) : this(new SingaWord(expected_value)) { }
+
       public override bool ExpectIt(ref IWordWalker ww)
       {
          if (!ExpectString(ref ww))

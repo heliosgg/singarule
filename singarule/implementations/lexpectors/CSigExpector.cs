@@ -20,7 +20,7 @@ namespace singarule.implementations.lexpectors
          }
          result.Name = sigNameExpector.result;
 
-         var colonExpector = new CExactWordExpector(new SingaWord(":"));
+         var colonExpector = new CExactWordExpector(":");
          if (!colonExpector.ExpectIt(ref ww))
          {
             error = colonExpector.error;
@@ -30,7 +30,7 @@ namespace singarule.implementations.lexpectors
          new CWhiteSpaceSkipper().ExpectIt(ref ww);
 
          ww.LockLockableMoves = true;
-         if (new CExactWordExpector(new SingaWord("str")).ExpectIt(ref ww))
+         if (new CExactWordExpector("str").ExpectIt(ref ww))
          {
             var stringSigExpector = new CStringSignatureExpector();
             if (!stringSigExpector.ExpectIt(ref ww))
@@ -40,7 +40,7 @@ namespace singarule.implementations.lexpectors
             }
             result.Signature = stringSigExpector.result;
          }
-         else if(new CExactWordExpector(new SingaWord("hex")).ExpectIt(ref ww))
+         else if(new CExactWordExpector("hex").ExpectIt(ref ww))
          {
             var hexSigExpector = new CHexSignatureExpector();
             if (!hexSigExpector.ExpectIt(ref ww))

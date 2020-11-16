@@ -16,7 +16,7 @@ namespace singarule.implementations.lexpectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         var rExpector = new CExactWordExpector(new SingaWord("r"));
+         var rExpector = new CExactWordExpector("r");
          if (!rExpector.ExpectIt(ref ww))
          {
             error = rExpector.error;
@@ -35,7 +35,7 @@ namespace singarule.implementations.lexpectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         var openBraceExpector = new CExactWordExpector(new SingaWord("{"));
+         var openBraceExpector = new CExactWordExpector("{");
          if (!openBraceExpector.ExpectIt(ref ww))
          {
             error = openBraceExpector.error;
@@ -53,7 +53,7 @@ namespace singarule.implementations.lexpectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         var closeBraceExpector = new CExactWordExpector(new SingaWord("}"));
+         var closeBraceExpector = new CExactWordExpector("}");
          if (!closeBraceExpector.ExpectIt(ref ww))
          {
             error = closeBraceExpector.error;
