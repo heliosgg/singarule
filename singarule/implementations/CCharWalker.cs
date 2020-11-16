@@ -7,35 +7,40 @@ namespace singarule.implementations
 {
    class CCharWalker : IWordWalker
    {
-      private string Data;
-      private int CurrentIdx;
+      public bool LockLockableMoves { get; set; }
+
+      private string _data;
+      private int _currentIdx;
+      private int _lockedMoves;
 
       public void Init(string data)
       {
-         CurrentIdx = 0;
-         this.Data = data;
+         LockLockableMoves = false;
+         _currentIdx = 0;
+         _lockedMoves = 0;
+         this._data = data;
       }
 
       public SingaWord GetNextWord(int offset = 1)
       {
-         int IdxToReturn = CurrentIdx + offset;
+         int IdxToReturn = _currentIdx + offset;
 
          if (IdxToReturn < 0)
          {
             return new SingaWord(SingaWordType.INVALUD);
          }
 
-         if (IdxToReturn == Data.Length)
+         if (IdxToReturn == _data.Length)
          {
             return new SingaWord(SingaWordType.EOF);
          }
 
-         if (IdxToReturn > Data.Length)
+         if (IdxToReturn > _data.Length)
          {
             return new SingaWord(SingaWordType.INVALUD);
          }
 
-         return new SingaWord(Convert.ToString(Data[IdxToReturn]));
+         return new SingaWord(Convert.ToString(_data[IdxToReturn]));
       }
 
       public SingaWord GetConcatedNWords(int n, int offset = 0)
@@ -56,24 +61,24 @@ namespace singarule.implementations
 
       public bool Move(int offset = 1)
       {
-         int NewIdx = CurrentIdx + offset;
+         int NewIdx = _currentIdx + offset;
 
-         if (NewIdx > Data.Length)
-            NewIdx = Data.Length;
+         if (NewIdx > _data.Length)
+            NewIdx = _data.Length;
 
-         if (CurrentIdx < 0)
+         if (_currentIdx < 0)
             NewIdx = 0;
 
-         CurrentIdx = NewIdx;
+         _currentIdx = NewIdx;
          return true;
       }
 
       public SingaWord GetCurrentLine()
       {
          int LineStart = 0;
-         for (int i = CurrentIdx; i >= 0; i--)
+         for (int i = _currentIdx; i >= 0; i--)
          {
-            if (Data[i].Equals(Environment.NewLine))
+            if (_data[i].Equals(Environment.NewLine))
             {
                LineStart = i;
                break;
@@ -81,11 +86,11 @@ namespace singarule.implementations
          }
 
          StringBuilder result = new StringBuilder("");
-         while (  LineStart < Data.Length
-               || Convert.ToString(Data[LineStart]).Equals(Environment.NewLine) == false
+         while (  LineStart < _data.Length
+               || Convert.ToString(_data[LineStart]).Equals(Environment.NewLine) == false
                )
          {
-            result.Append(Data[LineStart]);
+            result.Append(_data[LineStart]);
          }
 
          return new SingaWord(result.ToString());

@@ -45,11 +45,13 @@ namespace singarule.interfaces
 
    interface IWordWalker
    {
+      public bool LockLockableMoves { get; set; }
       void Init(string data);
       SingaWord GetNextWord(int offset = 1);
       SingaWord GetConcatedNWords(int n, int offset = 0);
       SingaWord GetCurrentWord() => GetNextWord(0);
       SingaWord GetCurrentLine();
       bool Move(int offset = 1);
+      bool LockableMove(int offset = 1) => LockLockableMoves ? false : Move(offset);
    }
 }

@@ -7,14 +7,14 @@ using System.Text;
 
 namespace singarule.implementations.lexpectors
 {
-   abstract class CGenericExpector
+   abstract class CGenericExpector<T>
    {
-      public string result { get; set; }
+      public T result { get; set; }
       public string error { get; set; }
       public List<SingaWord> ExpectedWords { get; protected set; }
 
       // times = -1 means infinity
-      abstract public bool ExpectIt(ref IWordWalker ww, ref SingaRule resultRule);
+      abstract public bool ExpectIt(ref IWordWalker ww);
       protected bool ExpectString(ref IWordWalker ww)
       {
          var currentWord = ww.GetCurrentWord();
@@ -28,7 +28,10 @@ namespace singarule.implementations.lexpectors
          return true;
       }
 
+      protected string BuildExpectedError(string expected, string found) =>
+         $"Expected `{expected}`, found `{found}`";
+
       protected string BuildExpectedError(string found) =>
-         $"Expected `{string.Join("`, `", ExpectedWords.Select(x => x.GetValue()))}`, found `{found}`";
+         BuildExpectedError(string.Join("`, `", ExpectedWords.Select(x => x.GetValue())), found);
    }
 }

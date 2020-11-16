@@ -6,14 +6,14 @@ using System.Text;
 
 namespace singarule.implementations.lexpectors
 {
-   class CNameExpector : CGenericExpector
+   class CNameExpector : CGenericExpector<string>
    {
       public CNameExpector()
       {
 
       }
 
-      public override bool ExpectIt(ref IWordWalker ww, ref SingaRule resultRule)
+      public override bool ExpectIt(ref IWordWalker ww)
       {
          if (!ExpectString(ref ww))
          {
@@ -23,7 +23,7 @@ namespace singarule.implementations.lexpectors
          StringBuilder resultName = new StringBuilder("");
 
          CLetterExpector letterExpector = new CLetterExpector();
-         if (!letterExpector.ExpectIt(ref ww, ref resultRule))
+         if (!letterExpector.ExpectIt(ref ww))
          {
             error = letterExpector.error;
             return false;
@@ -31,13 +31,13 @@ namespace singarule.implementations.lexpectors
          resultName.Append(letterExpector.result);
 
          CCharExpector charExpector = new CCharExpector();
-         while (charExpector.ExpectIt(ref ww, ref resultRule))
+         while (charExpector.ExpectIt(ref ww))
          {
             resultName.Append(charExpector.result);
          }
 
          result = resultName.ToString();
-         ww.Move();
+         ww.LockableMove();
          return true;
       }
    }

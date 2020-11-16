@@ -7,14 +7,14 @@ using System.Text;
 
 namespace singarule.implementations.lexpectors
 {
-   class CExactWordExpector : CGenericExpector
+   class CExactWordExpector : CGenericExpector<string>
    {
       public CExactWordExpector(SingaWord expected_value)
       {
          ExpectedWords = new SingaWord[] { expected_value }.ToList();
       }
 
-      public override bool ExpectIt(ref IWordWalker ww, ref SingaRule resultRule)
+      public override bool ExpectIt(ref IWordWalker ww)
       {
          if (!ExpectString(ref ww))
          {
@@ -30,7 +30,7 @@ namespace singarule.implementations.lexpectors
          }
 
          result = currentWordValue;
-         ww.Move(expectedLongWord.Length);
+         ww.LockableMove(expectedLongWord.Length);
          return true;
       }
    }

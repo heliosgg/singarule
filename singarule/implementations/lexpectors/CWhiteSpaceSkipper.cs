@@ -7,9 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace singarule.implementations.lexpectors
 {
-   class CWhiteSpaceSkipper : CGenericExpector
+   class CWhiteSpaceSkipper : CGenericExpector<object>
    {
-      public override bool ExpectIt(ref IWordWalker ww, ref SingaRule resultRule)
+      public override bool ExpectIt(ref IWordWalker ww)
       {
          var currentWord = ww.GetCurrentWord();
          while (  currentWord.IsEof() == false

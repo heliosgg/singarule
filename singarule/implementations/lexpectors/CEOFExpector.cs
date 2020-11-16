@@ -7,14 +7,14 @@ using System.Text;
 
 namespace singarule.implementations.lexpectors
 {
-   class CEOFExpector : CGenericExpector
+   class CEOFExpector : CGenericExpector<object>
    {
       public CEOFExpector()
       {
          ExpectedWords = new SingaWord[] { new SingaWord(SingaWordType.EOF) }.ToList();
       }
 
-      public override bool ExpectIt(ref IWordWalker ww, ref SingaRule resultRule)
+      public override bool ExpectIt(ref IWordWalker ww)
       {
          SingaWord currentWord = ww.GetCurrentWord();
          if (!currentWord.IsEof())

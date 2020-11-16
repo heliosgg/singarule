@@ -6,12 +6,12 @@ using System.Text;
 
 namespace singarule.implementations.lexpectors
 {
-   class CRuleExpector : CGenericExpector
+   class CRuleExpector : CGenericExpector<SingaRule>
    {
-      public override bool ExpectIt(ref IWordWalker ww, ref SingaRule resultRule)
+      public override bool ExpectIt(ref IWordWalker ww)
       {
          var metaStringExpector = new CExactWordExpector(new SingaWord("meta"));
-         if (!metaStringExpector.ExpectIt(ref ww, ref resultRule))
+         if (!metaStringExpector.ExpectIt(ref ww))
          {
             error = metaStringExpector.error;
             return false;
@@ -19,79 +19,79 @@ namespace singarule.implementations.lexpectors
 
          var spaceSkipper = new CWhiteSpaceSkipper();
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
          var openBraceExpector = new CExactWordExpector(new SingaWord("{"));
-         if (!openBraceExpector.ExpectIt(ref ww, ref resultRule))
+         if (!openBraceExpector.ExpectIt(ref ww))
          {
             error = openBraceExpector.error;
             return false;
          }
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
          // TODO: expect meta
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
          var closeBraceExpector = new CExactWordExpector(new SingaWord("}"));
-         if (!closeBraceExpector.ExpectIt(ref ww, ref resultRule))
+         if (!closeBraceExpector.ExpectIt(ref ww))
          {
             error = closeBraceExpector.error;
             return false;
          }
 
          var sigsStringExpector = new CExactWordExpector(new SingaWord("sigs"));
-         if (!sigsStringExpector.ExpectIt(ref ww, ref resultRule))
+         if (!sigsStringExpector.ExpectIt(ref ww))
          {
             error = sigsStringExpector.error;
             return false;
          }
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
-         if (!openBraceExpector.ExpectIt(ref ww, ref resultRule))
+         if (!openBraceExpector.ExpectIt(ref ww))
          {
             error = openBraceExpector.error;
             return false;
          }
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
          // TODO: expect sigs
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
-         if (!closeBraceExpector.ExpectIt(ref ww, ref resultRule))
+         if (!closeBraceExpector.ExpectIt(ref ww))
          {
             error = closeBraceExpector.error;
             return false;
          }
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
          var condStringExpector = new CExactWordExpector(new SingaWord("cond"));
-         if (!condStringExpector.ExpectIt(ref ww, ref resultRule))
+         if (!condStringExpector.ExpectIt(ref ww))
          {
             error = condStringExpector.error;
             return false;
          }
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
-         if (!openBraceExpector.ExpectIt(ref ww, ref resultRule))
+         if (!openBraceExpector.ExpectIt(ref ww))
          {
             error = openBraceExpector.error;
             return false;
          }
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
          // TODO: expect cond
 
-         spaceSkipper.ExpectIt(ref ww, ref resultRule);
+         spaceSkipper.ExpectIt(ref ww);
 
-         if (!closeBraceExpector.ExpectIt(ref ww, ref resultRule))
+         if (!closeBraceExpector.ExpectIt(ref ww))
          {
             error = closeBraceExpector.error;
             return false;
