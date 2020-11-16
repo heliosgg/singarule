@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace singarule.implementations.lexpectors
+namespace singarule.implementations.expectors
 {
    class CHexSignatureExpector : CGenericExpector<byte[]>
    {

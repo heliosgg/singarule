@@ -1,5 +1,5 @@
 ﻿using singarule.implementations;
-using singarule.implementations.lexpectors;
+using singarule.implementations.expectors;
 using singarule.interfaces;
 using System;
 using System.Collections.Generic;

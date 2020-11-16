@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace singarule.implementations.lexpectors
+namespace singarule.implementations.expectors
 {
    class CLetterExpector : CStringOfCharsExpector
    {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace singarule.implementations.lexpectors
+namespace singarule.implementations.expectors
 {
    class CWhiteSpaceSkipper : CGenericExpector<object>
    {
