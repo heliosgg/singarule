@@ -32,7 +32,13 @@ namespace singarule.implementations.lexpectors
          ww.LockLockableMoves = true;
          if (new CExactWordExpector(new SingaWord("str")).ExpectIt(ref ww))
          {
-            // TODO: expect string signature
+            var stringSigExpector = new CStringSignatureExpector();
+            if (!stringSigExpector.ExpectIt(ref ww))
+            {
+               error = stringSigExpector.error;
+               return false;
+            }
+            result.Signature = stringSigExpector.result;
          }
          else if(new CExactWordExpector(new SingaWord("hex")).ExpectIt(ref ww))
          {
