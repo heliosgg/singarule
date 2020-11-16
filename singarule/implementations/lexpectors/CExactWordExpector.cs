@@ -21,15 +21,16 @@ namespace singarule.implementations.lexpectors
             return false;
          }
 
-         var currentWordValue = ww.GetCurrentWord().GetValue();
-         if (!currentWordValue.Equals(ExpectedWords.First().GetValue()))
+         string expectedLongWord = ExpectedWords.First().GetValue();
+         string currentWordValue = ww.GetConcatedNWords(expectedLongWord.Length).GetValue();
+         if (!currentWordValue.Equals(expectedLongWord))
          {
             error = BuildExpectedError(currentWordValue);
             return false;
          }
 
          result = currentWordValue;
-         ww.Move();
+         ww.Move(expectedLongWord.Length);
          return true;
       }
    }

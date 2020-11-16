@@ -38,7 +38,7 @@ namespace singarule.implementations
          return new SingaWord(Convert.ToString(Data[IdxToReturn]));
       }
 
-      public SingaWord GetNextNWords(int offset, int n)
+      public SingaWord GetConcatedNWords(int n, int offset = 0)
       {
          StringBuilder result = new StringBuilder("");
 

@@ -47,7 +47,7 @@ namespace singarule.interfaces
    {
       void Init(string data);
       SingaWord GetNextWord(int offset = 1);
-      SingaWord GetNextNWords(int offset, int n);
+      SingaWord GetConcatedNWords(int n, int offset = 0);
       SingaWord GetCurrentWord() => GetNextWord(0);
       SingaWord GetCurrentLine();
       bool Move(int offset = 1);
