@@ -76,7 +76,7 @@ namespace singarule.implementations
       public SingaWord GetCurrentLine()
       {
          int LineStart = 0;
-         for (int i = _currentIdx; i >= 0; i--)
+         for (int i = _currentIdx == _data.Length ? _currentIdx - 1 : _currentIdx; i >= 0; i--)
          {
             if (_data[i].Equals(Environment.NewLine))
             {
@@ -87,10 +87,11 @@ namespace singarule.implementations
 
          StringBuilder result = new StringBuilder("");
          while (  LineStart < _data.Length
-               || Convert.ToString(_data[LineStart]).Equals(Environment.NewLine) == false
+               && Environment.NewLine.Contains(Convert.ToString(_data[LineStart])) == false
                )
          {
             result.Append(_data[LineStart]);
+            LineStart++;
          }
 
          return new SingaWord(result.ToString());

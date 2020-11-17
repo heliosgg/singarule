@@ -22,7 +22,9 @@ namespace singarule.models
          var langExpector = new CLanguageExpector();
          if(!langExpector.ExpectIt(ref ww))
          {
-            PrintCompilationError(langExpector.error);
+            PrintCompilationError(
+               $"{langExpector.error}\n" +
+               $"On line: `{ww.GetCurrentLine().GetValue()}`");
             return null;
          }
 
