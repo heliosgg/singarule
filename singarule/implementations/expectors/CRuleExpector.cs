@@ -30,7 +30,12 @@ namespace singarule.implementations.expectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         // TODO: expect meta
+         var metaExpector = new CMetaExpector();
+         if (!metaExpector.ExpectIt(ref ww))
+         {
+            error = metaExpector.error;
+            return false;
+         }
 
          spaceSkipper.ExpectIt(ref ww);
 
