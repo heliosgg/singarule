@@ -6,13 +6,13 @@ using System.Text;
 
 namespace singarule.implementations.expectors
 {
-   class CMetaExpector : CGenericExpector<List<SingaSig>>
+   class CMetaExpector : CGenericExpector<List<SingaState>>
    {
       public override bool ExpectIt(ref IWordWalker ww)
       {
-         List<SingaSig> metaSigs = new List<SingaSig>();
+         List<SingaState> metaSigs = new List<SingaState>();
 
-         var sigExpector = new CSigExpector();
+         var sigExpector = new CSingleSigExpector();
          var spaceSkipper = new CWhiteSpaceSkipper();
          while (sigExpector.ExpectIt(ref ww))
          {

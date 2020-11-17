@@ -2,6 +2,7 @@
 using singarule.models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace singarule.implementations.expectors
@@ -10,6 +11,8 @@ namespace singarule.implementations.expectors
    {
       public override bool ExpectIt(ref IWordWalker ww)
       {
+         result = new SingaRule();
+
          var metaStringExpector = new CExactWordExpector("meta");
          if (!metaStringExpector.ExpectIt(ref ww))
          {
@@ -36,6 +39,7 @@ namespace singarule.implementations.expectors
             error = metaExpector.error;
             return false;
          }
+         result.meta = metaExpector.result.Select(x => (SingaSig)x).ToList();
 
          spaceSkipper.ExpectIt(ref ww);
 
@@ -63,7 +67,13 @@ namespace singarule.implementations.expectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         // TODO: expect sigs
+         var sigsExpector = new CSigsExpector();
+         if (!sigsExpector.ExpectIt(ref ww))
+         {
+            error = sigsExpector.error;
+            return false;
+         }
+         result.sigs = sigsExpector.result;
 
          spaceSkipper.ExpectIt(ref ww);
 

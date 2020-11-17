@@ -6,11 +6,11 @@ using System.Text;
 
 namespace singarule.implementations.expectors
 {
-   class CSigExpector : CGenericExpector<SingaSig>
+   class CSingleSigExpector : CGenericExpector<SingaState>
    {
       public override bool ExpectIt(ref IWordWalker ww)
       {
-         result = new SingaSig();
+         result = new SingaState();
 
          var sigNameExpector = new CNameExpector();
          if (!sigNameExpector.ExpectIt(ref ww))
