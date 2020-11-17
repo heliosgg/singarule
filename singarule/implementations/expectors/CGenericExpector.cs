@@ -33,5 +33,7 @@ namespace singarule.implementations.expectors
 
       protected string BuildExpectedError(string found) =>
          BuildExpectedError(string.Join("`, `", ExpectedWords.Select(x => x.GetValue())), found);
+
+      public bool HasNoErrors() => string.IsNullOrEmpty(error);
    }
 }

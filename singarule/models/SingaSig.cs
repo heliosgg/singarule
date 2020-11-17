@@ -6,8 +6,8 @@ namespace singarule.models
 {
    class SingaSig
    {
-      public string Name;
-      public byte[] Signature;
+      public string Name { get; set; }
+      public byte[] Signature { get; set; }
 
       public SingaSig()
       {

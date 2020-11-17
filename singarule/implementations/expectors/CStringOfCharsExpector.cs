@@ -24,7 +24,7 @@ namespace singarule.implementations.expectors
          var currentWordValue = ww.GetCurrentWord().GetValue();
          foreach (var w in ExpectedWords)
          {
-            if (!currentWordValue.Equals(w.GetValue()))
+            if (currentWordValue.Equals(w.GetValue()))
             {
                result = currentWordValue;
                ww.LockableMove();

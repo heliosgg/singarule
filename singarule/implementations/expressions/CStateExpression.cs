@@ -9,7 +9,7 @@ namespace singarule.implementations.expressions
 {
    class CStateExpression : ISingaExpression
    {
-      public List<ISingaExpression> Expressions { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+      public List<ISingaExpression> Expressions { get; set; }
       private SingaState _state;
 
       public CStateExpression(SingaState state)

@@ -12,7 +12,12 @@ namespace singarule.implementations.expectors
    {
       public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
-         result = new SingaRule();
+         if (additionalParam is null)
+         {
+            throw new ArgumentNullException();
+         }
+
+         result = (SingaRule)additionalParam;
 
          var metaStringExpector = new CExactWordExpector("meta");
          if (!metaStringExpector.ExpectIt(ref ww))
@@ -50,6 +55,8 @@ namespace singarule.implementations.expectors
             error = closeBraceExpector.error;
             return false;
          }
+
+         spaceSkipper.ExpectIt(ref ww);
 
          var sigsStringExpector = new CExactWordExpector("sigs");
          if (!sigsStringExpector.ExpectIt(ref ww))

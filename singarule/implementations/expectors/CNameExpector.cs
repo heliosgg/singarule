@@ -37,7 +37,6 @@ namespace singarule.implementations.expectors
          }
 
          result = resultName.ToString();
-         ww.LockableMove();
          return true;
       }
    }

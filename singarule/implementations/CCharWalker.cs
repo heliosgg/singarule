@@ -11,13 +11,11 @@ namespace singarule.implementations
 
       private string _data;
       private int _currentIdx;
-      private int _lockedMoves;
 
       public void Init(string data)
       {
          LockLockableMoves = false;
          _currentIdx = 0;
-         _lockedMoves = 0;
          this._data = data;
       }
 
@@ -27,7 +25,7 @@ namespace singarule.implementations
 
          if (IdxToReturn < 0)
          {
-            return new SingaWord(SingaWordType.INVALUD);
+            return new SingaWord(SingaWordType.INVALID);
          }
 
          if (IdxToReturn == _data.Length)
@@ -37,7 +35,7 @@ namespace singarule.implementations
 
          if (IdxToReturn > _data.Length)
          {
-            return new SingaWord(SingaWordType.INVALUD);
+            return new SingaWord(SingaWordType.INVALID);
          }
 
          return new SingaWord(Convert.ToString(_data[IdxToReturn]));

@@ -45,11 +45,12 @@ namespace singarule.implementations.expectors
          spaceSkipper.ExpectIt(ref ww);
 
          var ruleExpector = new CRuleExpector();
-         if (!ruleExpector.ExpectIt(ref ww))
+         if (!ruleExpector.ExpectIt(ref ww, result))
          {
             error = ruleExpector.error;
             return false;
          }
+         result = ruleExpector.result;
 
          spaceSkipper.ExpectIt(ref ww);
 

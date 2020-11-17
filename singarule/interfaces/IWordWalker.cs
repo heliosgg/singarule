@@ -8,7 +8,7 @@ namespace singarule.interfaces
    { 
       STR = 0,
       EOF = 1,
-      INVALUD = 2
+      INVALID = 2
    }
    class SingaWord
    {
@@ -36,7 +36,7 @@ namespace singarule.interfaces
 
       public bool IsStr() => type == SingaWordType.STR;
       public bool IsEof() => type == SingaWordType.EOF;
-      public bool IsValid() => type != SingaWordType.INVALUD;
+      public bool IsValid() => type != SingaWordType.INVALID;
       public string GetValue() => value;
 
       private string value;
