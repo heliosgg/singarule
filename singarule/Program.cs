@@ -1,8 +1,6 @@
 ﻿using singarule.models;
 using System;
 using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace singarule
 {
@@ -10,19 +8,27 @@ namespace singarule
    {
       static void Main(string[] args)
       {
-         if (args.Length != 1)
+         if (args.Length != 2)
          {
-            Console.WriteLine($"{AppDomain.CurrentDomain.FriendlyName} ruleFileName");
+            Console.WriteLine($"{AppDomain.CurrentDomain.FriendlyName} ruleFileName fileToScan");
             return;
          }
 
          string ruleFileName = args[0];
+         string fileToScanName = args[1];
+
          string ruleContent = File.ReadAllText(ruleFileName);
+         byte[] fileToScanContent = File.ReadAllBytes(fileToScanName);
 
          SingaRule rule = SingaRule.Compile(ruleContent);
-         string jsonRule = JsonSerializer.Serialize(rule);
-
-         Console.Write(jsonRule);
+         if (rule.Scan(fileToScanContent))
+         {
+            Console.WriteLine($"Rule `{rule.name}` triggered on `{fileToScanName}` file");
+         }
+         else
+         {
+            Console.Write($"Rule `{rule.name}` found nothing");
+         }
       }
    }
 }
