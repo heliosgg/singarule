@@ -16,8 +16,8 @@ namespace singarule.models
    class SingaRule
    {
       public string name { get; set; }
-      public List<SingaSig> meta { get; set; }
-      public List<SingaState> sigs { get; set; }
+      public Dictionary<string, SingaSig> meta { get; set; }
+      public Dictionary<string, SingaState> sigs { get; set; }
       public List<SingaConditionOp> condition { get; set; }
 
       public static SingaRule Compile(string code)

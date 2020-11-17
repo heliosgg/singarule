@@ -39,7 +39,7 @@ namespace singarule.implementations.expectors
             error = metaExpector.error;
             return false;
          }
-         result.meta = metaExpector.result.Select(x => (SingaSig)x).ToList();
+         result.meta = metaExpector.result.ToDictionary(x => x.Name, x => (SingaSig)x);
 
          spaceSkipper.ExpectIt(ref ww);
 
@@ -73,7 +73,7 @@ namespace singarule.implementations.expectors
             error = sigsExpector.error;
             return false;
          }
-         result.sigs = sigsExpector.result;
+         result.sigs = sigsExpector.result.ToDictionary(x => x.Name, x => x);
 
          spaceSkipper.ExpectIt(ref ww);
 
