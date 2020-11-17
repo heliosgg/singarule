@@ -7,18 +7,12 @@ using System.Text;
 
 namespace singarule.models
 {
-   enum SingaConditionOp : uint
-   {
-      OR = 0,
-      AND = 1
-   }
-
    class SingaRule
    {
       public string name { get; set; }
       public Dictionary<string, SingaSig> meta { get; set; }
       public Dictionary<string, SingaState> sigs { get; set; }
-      public List<SingaConditionOp> condition { get; set; }
+      public ISingaExpression condition { get; set; }
 
       public static SingaRule Compile(string code)
       {
