@@ -1,4 +1,5 @@
-﻿using singarule.interfaces;
+﻿using singarule.implementations.expectors.condition;
+using singarule.interfaces;
 using singarule.models;
 using System;
 using System.Collections.Generic;
@@ -102,7 +103,13 @@ namespace singarule.implementations.expectors
 
          spaceSkipper.ExpectIt(ref ww);
 
-         // TODO: expect cond
+         var conditionExpector = new CConditionExpector();
+         if (!conditionExpector.ExpectIt(ref ww, result))
+         {
+            error = conditionExpector.error;
+            return false;
+         }
+         result.condition = conditionExpector.result;
 
          spaceSkipper.ExpectIt(ref ww);
 
