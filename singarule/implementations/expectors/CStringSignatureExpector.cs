@@ -8,7 +8,7 @@ namespace singarule.implementations.expectors
 {
    class CStringSignatureExpector : CGenericExpector<byte[]>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          var headExpector = new CExactWordExpector("str(\"");
          if (!headExpector.ExpectIt(ref ww))

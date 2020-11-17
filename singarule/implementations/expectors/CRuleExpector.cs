@@ -9,7 +9,7 @@ namespace singarule.implementations.expectors
 {
    class CRuleExpector : CGenericExpector<SingaRule>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          result = new SingaRule();
 

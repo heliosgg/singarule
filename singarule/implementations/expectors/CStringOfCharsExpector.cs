@@ -14,7 +14,7 @@ namespace singarule.implementations.expectors
          ExpectedWords = expected_chars.Select(x => new SingaWord(x)).ToList();
       }
 
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          if (!ExpectString(ref ww))
          {

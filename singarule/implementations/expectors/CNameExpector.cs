@@ -13,7 +13,7 @@ namespace singarule.implementations.expectors
 
       }
 
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          if (!ExpectString(ref ww))
          {

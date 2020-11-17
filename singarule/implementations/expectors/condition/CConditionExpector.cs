@@ -8,7 +8,7 @@ namespace singarule.implementations.expectors.condition
 {
    class CConditionExpector : CGenericExpector<ISingaExpression>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object currentSingaRule = null)
       {
          result = new COrExpression();
 

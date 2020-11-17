@@ -7,7 +7,7 @@ namespace singarule.implementations.expectors.condition
 {
    class CAndsExpector : CGenericExpector<ISingaExpression>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object currentSingaRule = null)
       {
          throw new NotImplementedException();
       }

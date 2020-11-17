@@ -8,7 +8,7 @@ namespace singarule.implementations.expectors
 {
    class CSingleSigExpector : CGenericExpector<SingaState>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          result = new SingaState();
 

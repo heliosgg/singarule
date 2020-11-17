@@ -9,7 +9,7 @@ namespace singarule.implementations.expectors
 {
    class CWhiteSpaceSkipper : CGenericExpector<object>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          var currentWord = ww.GetCurrentWord();
          while (  currentWord.IsEof() == false

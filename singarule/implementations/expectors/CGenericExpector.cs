@@ -14,7 +14,7 @@ namespace singarule.implementations.expectors
       public List<SingaWord> ExpectedWords { get; protected set; }
 
       // times = -1 means infinity
-      abstract public bool ExpectIt(ref IWordWalker ww);
+      abstract public bool ExpectIt(ref IWordWalker ww, object additionalParam = null);
       protected bool ExpectString(ref IWordWalker ww)
       {
          var currentWord = ww.GetCurrentWord();

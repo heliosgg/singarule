@@ -16,7 +16,7 @@ namespace singarule.implementations.expectors
 
       public CExactWordExpector(string expected_value) : this(new SingaWord(expected_value)) { }
 
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          if (!ExpectString(ref ww))
          {

@@ -8,9 +8,9 @@ namespace singarule.implementations.expectors
 {
    class CHexSignatureExpector : CGenericExpector<byte[]>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
-         var headExpector = new CExactWordExpector("hex("));
+         var headExpector = new CExactWordExpector("hex(");
          if (!headExpector.ExpectIt(ref ww))
          {
             error = headExpector.error;

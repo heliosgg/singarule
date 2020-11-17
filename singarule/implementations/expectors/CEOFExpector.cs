@@ -14,7 +14,7 @@ namespace singarule.implementations.expectors
          ExpectedWords = new SingaWord[] { new SingaWord(SingaWordType.EOF) }.ToList();
       }
 
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          SingaWord currentWord = ww.GetCurrentWord();
          if (!currentWord.IsEof())

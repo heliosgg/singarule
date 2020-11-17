@@ -8,7 +8,7 @@ namespace singarule.implementations.expectors
 {
    class CMetaExpector : CGenericExpector<List<SingaState>>
    {
-      public override bool ExpectIt(ref IWordWalker ww)
+      public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          List<SingaState> metaSigs = new List<SingaState>();
 
