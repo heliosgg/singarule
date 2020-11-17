@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "singarule": {
+      "commandName": "Project",
+      "commandLineArgs": "..\\..\\..\\testRule.sr"
+    }
+  }
+}

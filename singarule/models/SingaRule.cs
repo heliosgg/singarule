@@ -26,7 +26,7 @@ namespace singarule.models
             return null;
          }
 
-         return (SingaRule)langExpector.result;
+         return langExpector.result;
       }
 
       static private void PrintCompilationError(string error) => Console.WriteLine("Error: " + error);

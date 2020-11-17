@@ -1,0 +1,14 @@
+r ruleName  {
+	meta {
+		someShit: str("123");
+		anotherShit: hex(aa bb cc);
+	}
+	sigs {
+		a: str("aaaa");
+		b: hex(bb cc bb);
+		c: str("lololo");
+	}
+	cond {
+		a && b || c;
+	}
+}

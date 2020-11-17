@@ -26,14 +26,14 @@ namespace singarule.implementations.expectors
          {
             if (!currentWordValue.Equals(w.GetValue()))
             {
-               error = BuildExpectedError(currentWordValue);
-               return false;
+               result = currentWordValue;
+               ww.LockableMove();
+               return true;
             }
          }
 
-         result = currentWordValue;
-         ww.LockableMove();
-         return true;
+         error = BuildExpectedError(currentWordValue);
+         return false;
       }
    }
 }

@@ -1,7 +1,8 @@
-﻿using singarule.implementations;
-using singarule.interfaces;
+﻿using singarule.models;
 using System;
 using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace singarule
 {
@@ -9,17 +10,19 @@ namespace singarule
    {
       static void Main(string[] args)
       {
-         //if (args.Length != 2)
-         //{
-         //   Console.WriteLine($"{AppDomain.CurrentDomain.FriendlyName} rule directory");
-         //   return;
-         //}
+         if (args.Length != 1)
+         {
+            Console.WriteLine($"{AppDomain.CurrentDomain.FriendlyName} ruleFileName");
+            return;
+         }
 
-         //string rule = args[0];
-         //string directory = args[1];
+         string ruleFileName = args[0];
+         string ruleContent = File.ReadAllText(ruleFileName);
 
-         object a = "pidor";
-         //Console.WriteLine(a.);
+         SingaRule rule = SingaRule.Compile(ruleContent);
+         string jsonRule = JsonSerializer.Serialize(rule);
+
+         Console.Write(jsonRule);
       }
    }
 }
