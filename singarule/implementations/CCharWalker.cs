@@ -76,16 +76,16 @@ namespace singarule.implementations
          int LineStart = 0;
          for (int i = _currentIdx == _data.Length ? _currentIdx - 1 : _currentIdx; i >= 0; i--)
          {
-            if (_data[i].Equals(Environment.NewLine))
+            if (Environment.NewLine.Contains(_data[i]))
             {
-               LineStart = i;
+               LineStart = i + 1;
                break;
             }
          }
 
          StringBuilder result = new StringBuilder("");
          while (  LineStart < _data.Length
-               && Environment.NewLine.Contains(Convert.ToString(_data[LineStart])) == false
+               && Environment.NewLine.Contains(_data[LineStart]) == false
                )
          {
             result.Append(_data[LineStart]);
