@@ -55,7 +55,7 @@ namespace singarule.implementations.expectors
          else
          {
             ww.LockLockableMoves = false;
-            error = BuildExpectedError("str`, `hex", ww.GetConcatedNWords(3).GetValue());
+            error = BuildExpectedError(string.Join("`, `", "str", "hex"), ww.GetConcatedNWords(3).GetValue());
             return false;
          }
 
