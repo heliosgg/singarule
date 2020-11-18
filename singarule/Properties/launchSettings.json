@@ -2,7 +2,7 @@
   "profiles": {
     "singarule": {
       "commandName": "Project",
-      "commandLineArgs": "..\\..\\..\\testRule.sr ..\\..\\..\\*.bin"
+      "commandLineArgs": "..\\..\\..\\resources\\testRule.sr ..\\..\\..\\resources\\test_files_to_scan\\*.bin"
     }
   }
 }
