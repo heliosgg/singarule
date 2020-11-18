@@ -1,6 +1,7 @@
 ﻿using singarule.models;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace singarule
 {
@@ -10,25 +11,26 @@ namespace singarule
       {
          if (args.Length != 2)
          {
-            Console.WriteLine($"{AppDomain.CurrentDomain.FriendlyName} ruleFileName fileToScan");
+            Console.WriteLine($"{AppDomain.CurrentDomain.FriendlyName} ruleFileName fileMaskToScan");
             return;
          }
 
          string ruleFileName = args[0];
-         string fileToScanName = args[1];
+         string fileMaskToScan = args[1];
 
          string ruleContent = File.ReadAllText(ruleFileName);
-         byte[] fileToScanContent = File.ReadAllBytes(fileToScanName);
 
          SingaRule rule = SingaRule.Compile(ruleContent);
-         if (rule.Scan(fileToScanContent))
+         Directory.GetFiles(Directory.GetCurrentDirectory(), fileMaskToScan).ToList().ForEach(f =>
          {
-            Console.WriteLine($"Rule `{rule.name}` triggered on `{fileToScanName}` file");
-         }
-         else
-         {
-            Console.Write($"Rule `{rule.name}` found nothing");
-         }
+            string normalizedPath = Path.GetFullPath(f);
+            byte[] fileToScanContent = File.ReadAllBytes(normalizedPath);
+
+            if (rule.Scan(fileToScanContent))
+            {
+               Console.WriteLine($"`{rule.name}` triggered on `{normalizedPath}`");
+            }
+         });
       }
    }
 }
