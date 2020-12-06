@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace singarule.interfaces
 {
-   interface ISingaExpression
+   public interface ISingaExpression
    {
       List<ISingaExpression> Expressions { get; set; }
       ISingaExpression Operation(ISingaExpression left, ISingaExpression right);

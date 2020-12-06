@@ -4,13 +4,13 @@ using System.Text;
 
 namespace singarule.interfaces
 {
-   enum SingaWordType : int
+   public enum SingaWordType : int
    { 
       STR = 0,
       EOF = 1,
       INVALID = 2
    }
-   class SingaWord
+   public class SingaWord
    {
       public SingaWord(string value)
       {
@@ -43,7 +43,7 @@ namespace singarule.interfaces
       private SingaWordType type;
    }
 
-   interface IWordWalker
+   public interface IWordWalker
    {
       public bool LockLockableMoves { get; set; }
       void Init(string data);

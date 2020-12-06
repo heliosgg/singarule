@@ -1,5 +1,6 @@
 ﻿using singarule.interfaces;
 using singarule.models;
+using singarule_lib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace singarule.implementations.expectors
       }
 
       protected string BuildExpectedError(string expected, string found) =>
-         $"Expected `{expected}`, found `{found}`";
+         $"{Localization.Expected} `{expected}`, {Localization.Found.ToLower()} `{found}`";
 
       protected string BuildExpectedError(string found) =>
          BuildExpectedError(string.Join("`, `", ExpectedWords.Select(x => x.GetValue())), found);

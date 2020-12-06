@@ -1,5 +1,6 @@
 ﻿using singarule.interfaces;
 using singarule.models;
+using singarule_lib;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,7 +23,7 @@ namespace singarule.implementations.expectors
 
          if (!((SingaRule)currentSingaRule).sigs.ContainsKey(result))
          {
-            error = BuildExpectedError("existing signature name", result);
+            error = BuildExpectedError(Localization.ExistingSignatureName.ToLower(), result);
             return false;
          }
 

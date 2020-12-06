@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace singarule.models
 {
-   class SingaState : SingaSig
+   public class SingaState : SingaSig
    {
       public int position { get; set; } = -1;
 

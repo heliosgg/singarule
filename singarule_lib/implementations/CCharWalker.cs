@@ -5,7 +5,7 @@ using System.Text;
 
 namespace singarule.implementations
 {
-   class CCharWalker : IWordWalker
+   public class CCharWalker : IWordWalker
    {
       public bool LockLockableMoves { get; set; }
 

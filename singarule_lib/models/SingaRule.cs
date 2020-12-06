@@ -5,10 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using singarule_lib;
 
 namespace singarule.models
 {
-   class SingaRule
+   public class SingaError
+   {
+      public string ErrorMessage { get; set; } = null;
+      public IWordWalker ww { get; set; } = null;
+      public SingaRule rule = null;
+   }
+
+   public class SingaRule
    {
       public string name { get; set; }
       public Dictionary<string, SingaSig> meta { get; set; }
@@ -26,24 +34,31 @@ namespace singarule.models
          return condition.Eval();
       }
 
-      public static SingaRule Compile(string code)
+      public static SingaError Compile(string code)
       {
+         SingaError res = new SingaError();
+
          IWordWalker ww = new CCharWalker();
          ww.Init(code);
 
          var langExpector = new CLanguageExpector();
-         if(!langExpector.ExpectIt(ref ww))
+         if(langExpector.ExpectIt(ref ww))
          {
-            PrintCompilationError(
+            res.rule = langExpector.result;
+         }
+         else
+         {
+            res.ErrorMessage =
                $"{langExpector.error}\n" +
-               $"On line: `{ww.GetCurrentLine().GetValue()}`");
-            return null;
+               Localization.OnLine + $": `{ww.GetCurrentLine().GetValue()}`";
          }
 
-         return langExpector.result;
+         res.ww = ww;
+
+         return res;
       }
 
-      static private void PrintCompilationError(string error) => Console.WriteLine("[Compilation error]: " + error);
-      static private void PrintScanningError(string error) => Console.WriteLine("[Scanning error]: " + error);
+      static private void PrintCompilationError(string error) => Console.WriteLine($"[{Localization.CompilationError}]: " + error);
+      static private void PrintScanningError(string error) => Console.WriteLine($"[{Localization.ScanningError}]: " + error);
    }
 }

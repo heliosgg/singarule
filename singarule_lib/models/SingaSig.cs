@@ -4,7 +4,7 @@ using System.Text;
 
 namespace singarule.models
 {
-   class SingaSig
+   public class SingaSig
    {
       public string Name { get; set; }
       public byte[] Signature { get; set; }

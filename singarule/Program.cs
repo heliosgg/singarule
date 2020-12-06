@@ -1,7 +1,9 @@
-﻿using singarule.models;
-using System;
+﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using singarule.models;
+using singarule_lib;
 
 namespace singarule
 {
@@ -20,15 +22,15 @@ namespace singarule
 
          string ruleContent = File.ReadAllText(ruleFileName);
 
-         SingaRule rule = SingaRule.Compile(ruleContent);
+         SingaError compilerResult = SingaRule.Compile(ruleContent);
          Directory.GetFiles(Directory.GetCurrentDirectory(), fileMaskToScan).ToList().ForEach(f =>
          {
             string normalizedPath = Path.GetFullPath(f);
             byte[] fileToScanContent = File.ReadAllBytes(normalizedPath);
 
-            if (rule.Scan(fileToScanContent))
+            if (compilerResult.rule.Scan(fileToScanContent))
             {
-               Console.WriteLine($"`{rule.name}` triggered on `{normalizedPath}`");
+               Console.WriteLine($"`{compilerResult.rule.name}` {Localization.ResourceManager.GetString("TriggeredOn", CultureInfo.GetCultureInfo("en"))} `{normalizedPath}`");
             }
          });
       }
