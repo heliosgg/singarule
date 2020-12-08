@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
-namespace singarule.models
+namespace singarule_lib.models
 {
    public class SingaState : SingaSig
    {

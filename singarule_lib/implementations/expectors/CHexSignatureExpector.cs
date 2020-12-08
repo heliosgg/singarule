@@ -1,12 +1,11 @@
-﻿using singarule.interfaces;
+﻿using singarule_lib.interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
-namespace singarule.implementations.expectors
+namespace singarule_lib.implementations.expectors
 {
-   class CHexSignatureExpector : CGenericExpector<byte[]>
+   public class CHexSignatureExpector : CGenericExpector<byte[]>
    {
       public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {

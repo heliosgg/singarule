@@ -1,10 +1,8 @@
-﻿using singarule.implementations.expressions;
-using singarule.interfaces;
+﻿using singarule_lib.implementations.expressions;
+using singarule_lib.interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace singarule.implementations.expectors.condition
+namespace singarule_lib.implementations.expectors.condition
 {
    class CConditionExpector : CGenericExpector<ISingaExpression>
    {

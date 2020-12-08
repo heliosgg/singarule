@@ -1,10 +1,5 @@
-﻿using singarule.interfaces;
-using singarule.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace singarule.implementations.expectors
+﻿
+namespace singarule_lib.implementations.expectors
 {
-   class CSigsExpector : CMetaExpector { }
+   public class CSigsExpector : CMetaExpector { }
 }

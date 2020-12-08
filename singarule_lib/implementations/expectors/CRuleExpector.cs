@@ -1,14 +1,12 @@
-﻿using singarule.implementations.expectors.condition;
-using singarule.interfaces;
-using singarule.models;
+﻿using singarule_lib.implementations.expectors.condition;
+using singarule_lib.interfaces;
+using singarule_lib.models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace singarule.implementations.expectors
+namespace singarule_lib.implementations.expectors
 {
-   class CRuleExpector : CGenericExpector<SingaRule>
+   public class CRuleExpector : CGenericExpector<SingaRule>
    {
       public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {

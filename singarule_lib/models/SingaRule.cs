@@ -1,13 +1,11 @@
-﻿using singarule.implementations;
-using singarule.implementations.expectors;
-using singarule.interfaces;
+﻿using singarule_lib.implementations;
+using singarule_lib.implementations.expectors;
+using singarule_lib.interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using singarule_lib;
 
-namespace singarule.models
+namespace singarule_lib.models
 {
    public class SingaError
    {

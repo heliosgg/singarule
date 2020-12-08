@@ -1,12 +1,9 @@
-﻿using singarule.interfaces;
-using singarule.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using singarule_lib.interfaces;
+using singarule_lib.models;
 
-namespace singarule.implementations.expectors
+namespace singarule_lib.implementations.expectors
 {
-   class CLanguageExpector : CGenericExpector<SingaRule>
+   public class CLanguageExpector : CGenericExpector<SingaRule>
    {
       public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {

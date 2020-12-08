@@ -1,9 +1,8 @@
-﻿using singarule.interfaces;
+﻿using singarule_lib.interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace singarule.implementations.expressions
+namespace singarule_lib.implementations.expressions
 {
    class CConstantExpression : ISingaExpression
    {

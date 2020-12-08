@@ -1,14 +1,10 @@
-﻿using singarule.interfaces;
-using singarule.models;
-using singarule_lib;
-using System;
+﻿using singarule_lib.interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace singarule.implementations.expectors
+namespace singarule_lib.implementations.expectors
 {
-   abstract class CGenericExpector<T>
+   abstract public class CGenericExpector<T>
    {
       public T result { get; set; }
       public string error { get; set; }

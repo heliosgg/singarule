@@ -1,9 +1,8 @@
-﻿using singarule.interfaces;
+﻿using singarule_lib.interfaces;
 using System;
-using System.Collections.Generic;
 using System.Text;
 
-namespace singarule.implementations
+namespace singarule_lib.implementations
 {
    public class CCharWalker : IWordWalker
    {
@@ -94,5 +93,7 @@ namespace singarule.implementations
 
          return new SingaWord(result.ToString());
       }
+
+      public int GetCurrentPosition() => _currentIdx;
    }
 }

@@ -1,11 +1,9 @@
-﻿using singarule.interfaces;
-using singarule.models;
+﻿using singarule_lib.interfaces;
+using singarule_lib.models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace singarule.implementations.expressions
+namespace singarule_lib.implementations.expressions
 {
    class CStateExpression : ISingaExpression
    {

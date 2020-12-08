@@ -1,10 +1,7 @@
-﻿using singarule.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace singarule.interfaces
+namespace singarule_lib.interfaces
 {
    public interface ISingaExpression
    {

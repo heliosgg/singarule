@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "sungarule_ui": {
+      "commandName": "Project",
+      "commandLineArgs": "..\\..\\..\\..\\singarule\\resources\\testRule.sr ..\\..\\..\\..\\singarule\\resources\\test_files_to_scan\\*.bin"
+    }
+  }
+}

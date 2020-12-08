@@ -1,9 +1,7 @@
-﻿using singarule.interfaces;
-using System;
+﻿using singarule_lib.interfaces;
 using System.Collections.Generic;
-using System.Text;
 
-namespace singarule.implementations.expressions
+namespace singarule_lib.implementations.expressions
 {
    class COrExpression : ISingaExpression
    {

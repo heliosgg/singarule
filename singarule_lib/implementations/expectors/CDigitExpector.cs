@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace singarule.implementations.expectors
+﻿
+namespace singarule_lib.implementations.expectors
 {
-   class CDigitExpector : CStringOfCharsExpector
+   public class CDigitExpector : CStringOfCharsExpector
    {
       public CDigitExpector() : base("1234567890") { }
    }

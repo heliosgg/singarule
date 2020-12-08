@@ -1,12 +1,9 @@
-﻿using singarule.interfaces;
-using singarule.models;
-using System;
-using System.Collections.Generic;
+﻿using singarule_lib.interfaces;
 using System.Text;
 
-namespace singarule.implementations.expectors
+namespace singarule_lib.implementations.expectors
 {
-   class CNameExpector : CGenericExpector<string>
+   public class CNameExpector : CGenericExpector<string>
    {
       public CNameExpector()
       {

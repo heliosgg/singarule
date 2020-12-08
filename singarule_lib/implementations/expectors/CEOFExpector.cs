@@ -1,13 +1,9 @@
-﻿using singarule.interfaces;
-using singarule.models;
-using System;
-using System.Collections.Generic;
+﻿using singarule_lib.interfaces;
 using System.Linq;
-using System.Text;
 
-namespace singarule.implementations.expectors
+namespace singarule_lib.implementations.expectors
 {
-   class CEOFExpector : CGenericExpector<object>
+   public class CEOFExpector : CGenericExpector<object>
    {
       public CEOFExpector()
       {

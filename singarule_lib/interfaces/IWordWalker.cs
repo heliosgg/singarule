@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace singarule.interfaces
+﻿
+namespace singarule_lib.interfaces
 {
    public enum SingaWordType : int
    { 
@@ -51,6 +48,7 @@ namespace singarule.interfaces
       SingaWord GetConcatedNWords(int n, int offset = 0);
       SingaWord GetCurrentWord() => GetNextWord(0);
       SingaWord GetCurrentLine();
+      int GetCurrentPosition();
       bool Move(int offset = 1);
       bool LockableMove(int offset = 1) => LockLockableMoves ? false : Move(offset);
    }

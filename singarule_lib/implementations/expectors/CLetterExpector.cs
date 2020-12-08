@@ -1,12 +1,7 @@
-﻿using singarule.interfaces;
-using singarule.models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace singarule.implementations.expectors
+﻿
+namespace singarule_lib.implementations.expectors
 {
-   class CLetterExpector : CStringOfCharsExpector
+   public class CLetterExpector : CStringOfCharsExpector
    {
       public CLetterExpector() : base("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") { }
    }
