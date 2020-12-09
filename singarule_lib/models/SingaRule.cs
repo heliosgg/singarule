@@ -47,7 +47,11 @@ namespace singarule_lib.models
          else
          {
             res.ErrorMessage =
-               $"{langExpector.error} {Localization.ResourceManager.GetString("OnLine")}: `{ww.GetCurrentLine().GetValue()}`";
+               string.Concat(
+                  $"{langExpector.error}",
+                  Environment.NewLine,
+                  $"{Localization.ResourceManager.GetString("OnLine")} {ww.GetCurrentLineNumber()}: `{ww.GetCurrentLine().GetValue()}`"
+               );
          }
 
          res.ww = ww;

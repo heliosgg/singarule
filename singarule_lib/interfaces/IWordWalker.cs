@@ -49,6 +49,7 @@ namespace singarule_lib.interfaces
       SingaWord GetCurrentWord() => GetNextWord(0);
       SingaWord GetCurrentLine();
       int GetCurrentPosition();
+      int GetCurrentLineNumber();
       bool Move(int offset = 1);
       bool LockableMove(int offset = 1) => LockLockableMoves ? false : Move(offset);
    }

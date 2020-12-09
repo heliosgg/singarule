@@ -1,6 +1,7 @@
 ﻿using singarule_lib.interfaces;
 using System;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace singarule_lib.implementations
 {
@@ -95,5 +96,7 @@ namespace singarule_lib.implementations
       }
 
       public int GetCurrentPosition() => _currentIdx;
+
+      public int GetCurrentLineNumber() => Regex.Matches(_data.Substring(0, _currentIdx), @"^", RegexOptions.Multiline).Count;
    }
 }
