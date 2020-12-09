@@ -19,8 +19,9 @@ namespace singarule_lib.implementations.expectors
          List<string> stringBytes = new List<string>();
          var hexDigitExpector = new CHexDigitExpector();
          var spaceSkipper = new CWhiteSpaceSkipper();
+         var closedBracketExpector = new CExactWordExpector(")");
 
-         while (ww.GetCurrentWord().GetValue().Equals(")") == false)
+         while (!closedBracketExpector.ExpectItLockable(ref ww))
          {
             spaceSkipper.ExpectIt(ref ww);
 

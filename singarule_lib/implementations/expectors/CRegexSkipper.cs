@@ -15,9 +15,9 @@ namespace singarule_lib.implementations.expectors
       public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
          var currentWord = ww.GetCurrentWord();
-         while (currentWord.IsEof() == false
+         while (  currentWord.IsEof() == false
                && Regex.IsMatch(currentWord.GetValue(), _rePattern)
-               )
+         )
          {
             ww.Move();
             currentWord = ww.GetCurrentWord();

@@ -12,8 +12,16 @@ namespace singarule_lib.implementations.expectors
 
          var sigExpector = new CSingleSigExpector();
          var spaceSkipper = new CWhiteSpaceSkipper();
-         while (sigExpector.ExpectIt(ref ww))
+         var closedBraceExpector = new CExactWordExpector("}");
+
+         while (!closedBraceExpector.ExpectItLockable(ref ww))
          {
+            if (!sigExpector.ExpectIt(ref ww))
+            {
+               error = sigExpector.error;
+               return false;
+            }
+
             metaSigs.Add(sigExpector.result);
             spaceSkipper.ExpectIt(ref ww);
          }

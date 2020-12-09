@@ -38,10 +38,9 @@
          // 
          // btnOpen
          // 
-         this.btnOpen.Location = new System.Drawing.Point(836, 11);
-         this.btnOpen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.btnOpen.Location = new System.Drawing.Point(732, 8);
          this.btnOpen.Name = "btnOpen";
-         this.btnOpen.Size = new System.Drawing.Size(171, 56);
+         this.btnOpen.Size = new System.Drawing.Size(150, 42);
          this.btnOpen.TabIndex = 0;
          this.btnOpen.Text = "Открыть";
          this.btnOpen.UseVisualStyleBackColor = true;
@@ -49,10 +48,9 @@
          // 
          // btnSave
          // 
-         this.btnSave.Location = new System.Drawing.Point(836, 75);
-         this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.btnSave.Location = new System.Drawing.Point(732, 56);
          this.btnSave.Name = "btnSave";
-         this.btnSave.Size = new System.Drawing.Size(171, 56);
+         this.btnSave.Size = new System.Drawing.Size(150, 42);
          this.btnSave.TabIndex = 1;
          this.btnSave.Text = "Сохранить";
          this.btnSave.UseVisualStyleBackColor = true;
@@ -60,10 +58,9 @@
          // 
          // btnRun
          // 
-         this.btnRun.Location = new System.Drawing.Point(836, 139);
-         this.btnRun.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.btnRun.Location = new System.Drawing.Point(732, 104);
          this.btnRun.Name = "btnRun";
-         this.btnRun.Size = new System.Drawing.Size(171, 56);
+         this.btnRun.Size = new System.Drawing.Size(150, 42);
          this.btnRun.TabIndex = 2;
          this.btnRun.Text = "Запустить";
          this.btnRun.UseVisualStyleBackColor = true;
@@ -71,35 +68,36 @@
          // 
          // txtOut
          // 
-         this.txtOut.Location = new System.Drawing.Point(14, 348);
-         this.txtOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.txtOut.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+         this.txtOut.Location = new System.Drawing.Point(12, 261);
          this.txtOut.Multiline = true;
          this.txtOut.Name = "txtOut";
-         this.txtOut.Size = new System.Drawing.Size(816, 328);
+         this.txtOut.Size = new System.Drawing.Size(714, 247);
          this.txtOut.TabIndex = 4;
          // 
          // txtFileMask
          // 
-         this.txtFileMask.Location = new System.Drawing.Point(14, 685);
-         this.txtFileMask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.txtFileMask.Location = new System.Drawing.Point(12, 514);
          this.txtFileMask.Name = "txtFileMask";
-         this.txtFileMask.Size = new System.Drawing.Size(816, 27);
+         this.txtFileMask.Size = new System.Drawing.Size(714, 23);
          this.txtFileMask.TabIndex = 5;
          // 
          // rtxtCode
          // 
-         this.rtxtCode.Location = new System.Drawing.Point(14, 11);
+         this.rtxtCode.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+         this.rtxtCode.Location = new System.Drawing.Point(12, 8);
+         this.rtxtCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
          this.rtxtCode.Name = "rtxtCode";
-         this.rtxtCode.Size = new System.Drawing.Size(816, 330);
+         this.rtxtCode.Size = new System.Drawing.Size(714, 248);
          this.rtxtCode.TabIndex = 6;
          this.rtxtCode.Text = "";
          this.rtxtCode.FontChanged += new System.EventHandler(this.rtxtCode_FontChanged);
          // 
          // MainForm
          // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+         this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(1019, 735);
+         this.ClientSize = new System.Drawing.Size(892, 551);
          this.Controls.Add(this.rtxtCode);
          this.Controls.Add(this.txtFileMask);
          this.Controls.Add(this.txtOut);
@@ -107,7 +105,6 @@
          this.Controls.Add(this.btnSave);
          this.Controls.Add(this.btnOpen);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-         this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.MaximizeBox = false;
          this.MinimizeBox = false;
          this.Name = "MainForm";

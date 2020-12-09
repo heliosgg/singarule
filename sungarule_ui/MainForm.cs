@@ -20,8 +20,10 @@ namespace sungarule_ui
    {
       private string _currentFilePath;
       private CultureInfo _cultureInfo;
-      private readonly Font _defaultFont;
-      private Color _errorColor = Color.Red;
+      private readonly Font _defaultCodeFont;
+      private readonly Font _errorCodeFont;
+      private readonly Color _defaultCodeColor = Color.Black;
+      private readonly Color _errorCodeColor = Color.Red;
 
       public MainForm()
       {
@@ -34,7 +36,9 @@ namespace sungarule_ui
          btnSave.Text = Localization.ResourceManager.GetString("Save", _cultureInfo);
          btnRun.Text = Localization.ResourceManager.GetString("Run", _cultureInfo);
 
-         _defaultFont = rtxtCode.Font;
+         _defaultCodeFont = rtxtCode.Font;
+         _errorCodeFont = new Font(_defaultCodeFont, FontStyle.Bold | FontStyle.Underline);
+         ResetCodeFont();
 
          string[] argv = Environment.GetCommandLineArgs();
 
@@ -51,7 +55,22 @@ namespace sungarule_ui
 
       private void ResetCodeFont()
       {
-         rtxtCode.Font = _defaultFont;
+         rtxtCode.Font = _defaultCodeFont;
+         rtxtCode.SelectAll();
+         rtxtCode.SelectionColor = _defaultCodeColor;
+         rtxtCode.Select(0, 0);
+      }
+
+      private void HighLigthError(int errorStartPos, int errorEndPos)
+      {
+         int length = errorEndPos - errorStartPos;
+         if (length == 0)
+            length = 1;
+
+         rtxtCode.Select(errorStartPos, length);
+         rtxtCode.SelectionFont = _errorCodeFont;
+         rtxtCode.SelectionColor = _errorCodeColor;
+         rtxtCode.Select(0, 0);
       }
 
       private void OpenRule(string path)
@@ -107,9 +126,7 @@ namespace sungarule_ui
             wordSkipper.ExpectIt(ref ww);
             int errorEndPos = ww.GetCurrentPosition();
 
-            rtxtCode.Select(errorStartPos, errorEndPos - errorStartPos + 1);
-            rtxtCode.SelectionFont = new Font(_defaultFont, FontStyle.Bold);
-            rtxtCode.SelectionColor = _errorColor;
+            HighLigthError(errorStartPos, errorEndPos);
 
             return;
          }

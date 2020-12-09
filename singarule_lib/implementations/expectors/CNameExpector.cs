@@ -12,10 +12,10 @@ namespace singarule_lib.implementations.expectors
 
       public override bool ExpectIt(ref IWordWalker ww, object additionalParam = null)
       {
-         if (!ExpectString(ref ww))
-         {
-            return false;
-         }
+         //if (!ExpectString(ref ww))
+         //{
+         //   return false;
+         //}
 
          StringBuilder resultName = new StringBuilder("");
 

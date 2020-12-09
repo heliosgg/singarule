@@ -12,6 +12,14 @@ namespace singarule_lib.implementations.expectors
 
       // times = -1 means infinity
       abstract public bool ExpectIt(ref IWordWalker ww, object additionalParam = null);
+      public bool ExpectItLockable(ref IWordWalker ww, object additionalParam = null)
+      {
+         ww.LockLockableMoves = true;
+         bool result = ExpectIt(ref ww, additionalParam);
+         ww.LockLockableMoves = false;
+
+         return result;
+      }
       protected bool ExpectString(ref IWordWalker ww)
       {
          var currentWord = ww.GetCurrentWord();
